@@ -76,7 +76,7 @@ async function messagefunc(event) {
             }
           }
         ]
-      }
+      };
   return message;
 }
 //ポストバックイベントの処理
