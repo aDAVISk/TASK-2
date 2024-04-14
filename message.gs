@@ -1,4 +1,4 @@
-const ACCESS_TOKEN = "0Pr/6P8TiIKKyhY86hchp4f12Jw6bvl2fw12j6lVSbmIuNLSoek2V8uuZeLI06/GDbFLbuBFw+hikYAiMa07PEzjscqIV31YPuEQJMV0it1OguyvJ76GCVRwvInPYHdzfa4v6xy2oglny6RoHLDvqwdB04t89/1O/w1cDnyilFU=";
+const ACCESS_TOKEN = "トークンNo.をここに";
 async function doPost(e) {
   for (let i = 0; i < JSON.parse(e.postData.contents).events.length; i++) {
     const event = JSON.parse(e.postData.contents).events[i];
