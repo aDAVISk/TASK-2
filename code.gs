@@ -47,15 +47,37 @@ async function eventHandle(event) {
 
 //メッセージイベントの処理
 async function messagefunc(event) {
+  let message;
   if(event.message.type === 'image'){
       //送られてきた画像をダウンロードする
       const img = await getImageFunc(event.message.id);
       //送信された画像をDriveにアップロードする
       const imageId = await saveImageFunc(img);
-      return { type: "text", text: "写真を送信しました" };
+      message = { type: "text", text: "写真を送信しました" };
   }else {
-    return { type: "text", text: event.message.text };
+    message =  { type: "text", text: event.message.text };
   }
+  message.quickReply= {
+        "items": [
+          {
+            "type": "action",
+            "action": {
+              "type": "message",
+              "label": "Bot説明",
+              "text": "Bot説明"
+            }
+          },
+          {
+            "type": "action",
+            "action": {
+              "type": "message",
+              "label": "利用規約",
+              "text": "利用規約"
+            }
+          }
+        ]
+      }
+  return message;
 }
 //ポストバックイベントの処理
 async function postbackFunc(event) {
@@ -63,12 +85,11 @@ async function postbackFunc(event) {
 }
 //友達登録時の処理
 async function followFunc(event) {
-  return { type: "text", text: "友達登録ありがとうございます.利用規約等に同意してください."+ 
-  "https://docs.google.com/forms/d/e/1FAIpQLScAluHJtBQq-oXIAlrjDwcp2_0MuffJzLodoiSWiIneKiLzIA/viewform?usp=pp_url&entry.780400687=" 
+  return { type: "text", text: "友達登録ありがとうございます.利用規約等に同意してください."+
+  "https://docs.google.com/forms/d/e/1FAIpQLScAluHJtBQq-oXIAlrjDwcp2_0MuffJzLodoiSWiIneKiLzIA/viewform?usp=pp_url&entry.780400687="
   + event.source.userId };
 }
 //友達解除後の処理
 async function unfollowFunc() {
   return undefined;
 }
-
