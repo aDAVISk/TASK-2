@@ -1,0 +1,29 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [135.4981779132468, 34.706132423924274]
+      },
+      "properties":{
+        "memo":"梅田駅",
+        "date-time":"20240414T02:00:00Z",
+        "photoURL":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Hankyu_Osaka_Umeda_Station_20200607.jpg/1920px-Hankyu_Osaka_Umeda_Station_20200607.jpg"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [135.75757192274352, 35.070468976117525]
+      },
+      "properties":{
+        "memo":"京都産業大学",
+        "date-time":"20240414T03:00:00Z",
+        "photoURL":"https://www.kyoto-su.ac.jp/common-wr/ahcetq00000000bl-img/ogimage_ksu.jpg"
+      }
+    }
+  ]
+}
