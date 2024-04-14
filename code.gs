@@ -63,7 +63,7 @@ async function postbackFunc(event) {
 }
 //友達登録時の処理
 async function followFunc(event) {
-  return { type: "text", text: "友達登録ありがとうございます.利用規約等にに同意してください."+ 
+  return { type: "text", text: "友達登録ありがとうございます.利用規約等に同意してください."+ 
   "https://docs.google.com/forms/d/e/1FAIpQLScAluHJtBQq-oXIAlrjDwcp2_0MuffJzLodoiSWiIneKiLzIA/viewform?usp=pp_url&entry.780400687=" 
   + event.source.userId };
 }
