@@ -1,0 +1,29 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [135.4944140758825, 34.70514006597063]
+      },
+      "properties":{
+        "memo":"LineBot Hackathon",
+        "date-time":"20240412T02:00:00Z",
+        "photoURL":"https://media.connpass.com/thumbs/a1/f2/a1f204585da7822911ea01b5f7c42e7b.png"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [135.75757192274352, 35.070468976117525]
+      },
+      "properties":{
+        "memo":"京都産業大学",
+        "date-time":"20240412T03:00:00Z",
+        "photoURL":"https://www.kyoto-su.ac.jp/common-wr/ahcetq00000000bl-img/ogimage_ksu.jpg"
+      }
+    }
+  ]
+}
