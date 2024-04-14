@@ -4,9 +4,7 @@ function getPosition() {
 
 function geoSet(position) {
 
-    var date = new Date(position.timestamp);
-    let geo_text = "lon:" + position.coords.longitude + ",lnt:" + position.coords.latitude + ",time:" + date.toLocaleString();
+    let geo_text = "properties;{'lon':" + position.coords.longitude + ",lat:" + position.coords.latitude + "}";
 
     liff.sendMessages(geo_text);
-
 }
