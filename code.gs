@@ -1,4 +1,5 @@
 const ACCESS_TOKEN = "アクセストークン";
+
 async function doPost(e) {
   for (let i = 0; i < JSON.parse(e.postData.contents).events.length; i++) {
     const event = JSON.parse(e.postData.contents).events[i];
@@ -43,9 +44,18 @@ async function eventHandle(event) {
   }
   return message;
 }
+
 //メッセージイベントの処理
 async function messagefunc(event) {
-  return { type: "text", text: event.message.text };
+  if(event.message.type === 'image'){
+      //送られてきた画像をダウンロードする
+      const img = await getImageFunc(event.message.id);
+      //送信された画像をDriveにアップロードする
+      const imageId = await saveImageFunc(img);
+      return { type: "text", text: "写真を送信しました" };
+  }else {
+    return { type: "text", text: event.message.text };
+  }
 }
 //ポストバックイベントの処理
 async function postbackFunc(event) {
