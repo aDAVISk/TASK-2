@@ -1,0 +1,45 @@
+<html lang="jp" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script type="text/javascript">
+      liff.init({ liffId: "2004634661-VB5ABXl8" })
+      document.addEventListener("DOMContentLoaded", () => {
+
+          const input_file = document.querySelector('[type="file"]');
+          input_file.addEventListener('change',function(e){
+              document.getElementById('go').addEventListener('click',error  => {
+                  document.getElementById('log').value += e.target.files[0]+'\n';
+              })
+              // アップロードしたファイルのURLを取得
+              const upload_file_url = URL.createObjectURL(e.target.files[0]);
+
+              // img要素を作成
+              const img_element = document.createElement("img");
+              img_element.src = upload_file_url;
+              img_element.alt = e.target.files[0].name;
+              img_element.width = 100;
+              img_element.onload = function(){
+                  URL.revokeObjectURL(this.src);
+              }
+              // ページにimg要素を挿入して画像ファイルを表示
+              const div_element = document.getElementById('file_viewer');
+              div_element.appendChild(img_element);
+          });
+      });
+
+  </script>
+</head>
+<body>
+<div>
+  <h3>画像を送信する</h3>
+  <form action="/home" method="post" enctype="multipart/form-data">
+    <div>image<input type="file" capture="environment" accept="image/*" id='image' value="" name="image[picture]"></div>
+    <div id="file_viewer"></div>
+    <input type="submit" id="go" value="実行"/>
+  </form>
+  <textarea id="log" style="width:96%;height:100px;"></textarea>
+</div>
+</body>
+</html>

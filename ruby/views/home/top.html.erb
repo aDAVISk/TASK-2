@@ -1,0 +1,39 @@
+<html lang="jp" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XP LIFF</title>
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script type="text/javascript">
+
+    liff.init({ liffId: "2004634661-VB5ABXl8" })
+    document.addEventListener("DOMContentLoaded", () => {
+
+        document.getElementById('go').addEventListener('click', () => {
+            if (!liff.isInClient()) {
+                document.getElementById('log').value += 'sendMessagesImage ng\n';
+            } else {
+                liff.sendMessages([{
+                    'type': 'image',
+                    'originalContentUrl': encodeURI(document.getElementById("image").src),
+                    'previewImageUrl': encodeURI(document.getElementById("image").src)
+                }]).then(function () {
+                    document.getElementById('log').value += 'sendMessagesImage completed\n';
+                }).catch(function (error) {
+                    document.getElementById('log').value += 'sendMessagesImage()=' + error + '\n';
+                });
+            }
+        });
+    });
+
+
+  </script>
+</head>
+<body>
+<div>
+  <%= image_tag "#{@path}" ,id:"image" %>
+  <input type="submit" id="go" value="実行"/>
+  <label for="log"></label><textarea id="log" style="width:96%;height:100px;"></textarea>
+</div>
+</body>
+</html>
